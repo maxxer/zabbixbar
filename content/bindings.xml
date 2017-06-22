@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://zabbixbar/locale/zabbixbar.dtd">
+
+<bindings xmlns="http://www.mozilla.org/xbl"
+    xmlns:xbl="http://www.mozilla.org/xbl"
+xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<binding id="menu-tab" display="xul:tab" extends="chrome://global/content/bindings/tabbox.xml#tab">
+     <content>
+        <xul:menupopup anonid="popup"
+                       oncommand="zabbixbar.updateInterval(this.parentNode.getAttribute('id'),this);">
+            <xul:menuitem type="radio" label="&zabbixbar.refresh30s;" value="30000" style="font-size: x-small;"/>
+            <xul:menuitem type="radio" label="&zabbixbar.refresh1m;" value="60000" style="font-size: x-small;"/>
+            <xul:menuitem type="radio" label="&zabbixbar.refresh10m;" value="600000" style="font-size: x-small;"/>
+            <xul:menuitem type="radio" label="&zabbixbar.refresh30m;" value="1800000" style="font-size: x-small;"/>
+            <xul:menuitem type="radio" label="&zabbixbar.refresh1h;" value="3600000" style="font-size: x-small;"/>
+            <xul:menuitem type="radio" label="&zabbixbar.refreshdis;" value="disabled" style="font-size: x-small;"/>
+        </xul:menupopup>
+         <xul:label flex="1" xbl:inherits="value=label,crop,accesskey" crop="right" class="tab-text"/>
+    </content>
+    <implementation>
+        <constructor>
+        <![CDATA[
+           this.popup = document.getAnonymousElementByAttribute(this, "anonid", "popup");
+           this.popup.tooltip
+        ]]>          
+        </constructor>      
+        <field name="value"/>
+        <field name="label"/>
+        <field name="module"/>  
+    </implementation>
+       <handlers>                                        
+        <handler event="mousedown" button="2"><![CDATA[
+            this.popup.showPopup(this, -1, -1, "popup", "bottomleft", "topleft");
+        ]]></handler> 
+         <handler event="popupshowing"><![CDATA[
+             
+             var items = this.popup.getElementsByTagNameNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul","menuitem");
+             for (var i=0; i<items.length; i++) {
+                  var url =  prefManager.getCharPref("extensions.zabbixbar.url");
+                  if(typeof(window["prefService"]) != "undefined") {
+                      var URIFactory = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
+                      URI = URIFactory.newURI(url,null,null);
+                      if(prefService.getPref(URI,this.getAttribute('id')) == items[i].value) {
+                        items[i].setAttribute("checked",true);
+                      }
+                 } else {
+                      if(prefManager.getCharPref("extensions.zabbixbar." + this.getAttribute('id')) == items[i].value) {
+                        items[i].setAttribute("checked",true);
+                      }
+
+                 }   
+             }
+         ]]></handler> 
+        </handlers>
+</binding>
+</bindings>

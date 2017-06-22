@@ -1,0 +1,34 @@
+<!ENTITY zabbixbar.showBar "Amosar zabbix bar">
+<!ENTITY zabbixbar.title "Ultimos problemas zabbix">
+<!ENTITY zabbixbar.toggle "Amosar/ogachar zabbix bar">
+<!ENTITY zabbixbar.showack "Agachar problemas coñecidos">
+<!ENTITY zabbixbar.autohide "Agachar/Amosar automaticamente">
+<!ENTITY zabbixbar.show_popup "Amosar problemas nun popup">
+
+<!ENTITY zabbixbar.showack_inf "Agochar problemas NC/informacion">
+<!ENTITY zabbixbar.showack_war "Agochar problemas advertencia">
+<!ENTITY zabbixbar.showack_avg "Agochar problemas medio">
+<!ENTITY zabbixbar.showack_hi  "Agochar problemas altos">
+<!ENTITY zabbixbar.showack_di  "Agochar problemas desastre">
+
+<!ENTITY zabbixbar.showack_info "Son en problemas NC/informacion">
+<!ENTITY zabbixbar.showack_warning "Son en problemas advertencia">
+<!ENTITY zabbixbar.showack_average "Son en  problemas medio">
+<!ENTITY zabbixbar.showack_high  "Son en problemas altos">
+<!ENTITY zabbixbar.showack_disaster  "Son en problemas desastre">
+
+<!ENTITY zabbixbar.preferences "Preferencias">
+
+<!ENTITY zabbixbar.issues "Problemas">
+<!ENTITY zabbixbar.status "Estado">
+<!ENTITY zabbixbar.webstatus "Estado web">
+<!ENTITY zabbixbar.systemstatus "Estado do sistema">
+<!ENTITY zabbixbar.refresh_now "Actualizar agora">
+
+
+<!ENTITY zabbixbar.refresh30s "Actualizar cada 30 segundos">
+<!ENTITY zabbixbar.refresh1m  "Actualizar cada 1 minutos">
+<!ENTITY zabbixbar.refresh10m "Actualizar cada 10 minutos">
+<!ENTITY zabbixbar.refresh30m "Actualizar cada 30 minutos">
+<!ENTITY zabbixbar.refresh1h  "Actualizar cada 1 hora">
+<!ENTITY zabbixbar.refreshdis "Deshabilitado">

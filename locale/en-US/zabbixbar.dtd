@@ -1,0 +1,34 @@
+<!ENTITY zabbixbar.showBar "Show zabbix bar">
+<!ENTITY zabbixbar.title "Last zabbix issues">
+<!ENTITY zabbixbar.toggle "Show/hidde zabbix bar">
+<!ENTITY zabbixbar.showack "Hide issues acknowledged">
+<!ENTITY zabbixbar.autohide "Auto show/hide">
+<!ENTITY zabbixbar.show_popup "Show issues on popup">
+
+<!ENTITY zabbixbar.showack_inf  "Hide NC/information issues">
+<!ENTITY zabbixbar.showack_war "Hide warning issues">
+<!ENTITY zabbixbar.showack_avg "Hide average issues">
+<!ENTITY zabbixbar.showack_hi "Hide high issues">
+<!ENTITY zabbixbar.showack_di "Hide disaster issues">
+
+<!ENTITY zabbixbar.audio_info  "Sound on NC/information issues">
+<!ENTITY zabbixbar.audio_warning "Sound on warning issues">
+<!ENTITY zabbixbar.audio_average "Sound on average issues">
+<!ENTITY zabbixbar.audio_high "Sound on high issues">
+<!ENTITY zabbixbar.audio_disaster "Sound on disaster issues">
+
+<!ENTITY zabbixbar.preferences "Preferences">
+
+<!ENTITY zabbixbar.issues "Issues">
+<!ENTITY zabbixbar.status "Status">
+<!ENTITY zabbixbar.webstatus "Web status">
+<!ENTITY zabbixbar.systemstatus "System status">
+<!ENTITY zabbixbar.refresh_now "Refresh now">
+
+<!ENTITY zabbixbar.refresh30s "Refresh each 30 seconds">
+<!ENTITY zabbixbar.refresh1m  "Refresh each 1 minute">
+<!ENTITY zabbixbar.refresh10m "Refresh each 10 minutes">
+<!ENTITY zabbixbar.refresh30m "Refresh each 30 minutes">
+<!ENTITY zabbixbar.refresh1h  "Refresh each 1 hour">
+<!ENTITY zabbixbar.refreshdis "Disabled">
+

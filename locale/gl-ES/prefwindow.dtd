@@ -1,0 +1,7 @@
+<!ENTITY prefwindow.title "Zabbix bar opcions">
+<!ENTITY pane1.title "Zabbix bar opcions">
+<!ENTITY zabbixbar.url "Url onde zabbix está aloxado">
+<!ENTITY zabbixbar.username "Usuario para zabbix">
+<!ENTITY zabbixbar.password "Contrasinal para zabbix">
+<!ENTITY zabbixbar.showack "Amosar problemas coñecidos">
+

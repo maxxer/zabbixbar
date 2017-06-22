@@ -1,0 +1,29 @@
+/* This is just an example.  You shouldn't do this. */
+#zabbixbar-hello
+{
+  color: red ! important;
+}
+#zabbixbar-toolbar-button
+{
+  list-style-image: url("chrome://zabbixbar/skin/toolbar-button.png");
+  -moz-image-region: rect(0px 24px 24px 0px);
+}
+#zabbixbar-toolbar-button:hover
+{
+  -moz-image-region: rect(24px 24px 48px  0px);
+}
+[iconsize="small"] #zabbixbar-toolbar-button
+{
+  -moz-image-region: rect( 0px 40px 16px 24px);
+}
+[iconsize="small"] #zabbixbar-toolbar-button:hover
+{
+  -moz-image-region: rect(24px 40px 40px 24px);
+}
+#zbStatusIcon {
+    list-style-image: url(chrome://zabbixbar/skin/zabbixbar.png);
+}
+#zbcontainer tab {
+     -moz-binding: url(chrome://zabbixbar/content/bindings.xml#menu-tab);
+}
+

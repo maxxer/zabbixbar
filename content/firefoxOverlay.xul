@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+  -   Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  -
+  - The contents of this file are subject to the Mozilla Public License Version
+  - 1.1 (the "License"); you may not use this file except in compliance with
+  - the License. You may obtain a copy of the License at
+  - http://www.mozilla.org/MPL/
+  - 
+  - Software distributed under the License is distributed on an "AS IS" basis,
+  - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+  - for the specific language governing rights and limitations under the
+  - License.
+  -
+  - The Original Code is bar showing zabbix issues.
+  -
+  - The Initial Developer of the Original Code is
+  - Alberto González Rodríguez.
+  - Portions created by the Initial Developer are Copyright (C) 2009
+  - the Initial Developer. All Rights Reserved.
+  -
+  - Contributor(s):
+  -
+  - Alternatively, the contents of this file may be used under the terms of
+  - either the GNU General Public License Version 2 or later (the "GPL"), or
+  - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+  - in which case the provisions of the GPL or the LGPL are applicable instead
+  - of those above. If you wish to allow use of your version of this file only
+  - under the terms of either the GPL or the LGPL, and not to allow others to
+  - use your version of this file under the terms of the MPL, indicate your
+  - decision by deleting the provisions above and replace them with the notice
+  - and other provisions required by the GPL or the LGPL. If you do not delete
+  - the provisions above, a recipient may use your version of this file under
+  - the terms of any one of the MPL, the GPL or the LGPL.
+  - 
+  - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://zabbixbar/skin/overlay.css" type="text/css"?>
+<?xml-stylesheet href="chrome://zabbixbar/skin/zabbix.css" type="text/css"?>
+<?xml-stylesheet href="chrome://zabbixbar/skin/zabbix14.css" type="text/css"?>
+<?xml-stylesheet href="chrome://zabbixbar/skin/div.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://zabbixbar/locale/zabbixbar.dtd">
+
+<overlay id="zabbixbar-toolbar-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="PrefManager.js"/>
+  <script src="overlay.js"/>
+  <script src="showhint.js"/>
+  <script src="firefoxOverlay.js"/>
+  <commandset id="mainCommandSet">
+        <command id="cmd_toggleAck" oncommand="zabbixbar.toggleAck()"/>
+        <command id="cmd_toggleHide" oncommand="zabbixbar.toggleHide()"/>
+        <command id="cmd_togglePopup" oncommand="zabbixbar.togglePopup()"/>
+  </commandset>
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="zabbixbar-strings" src="chrome://zabbixbar/locale/zabbixbar.properties"/>
+  </stringbundleset>
+  <vbox id="appcontent">
+     <splitter id="zbContentSplitter" collapsed="false"/>
+     <tabbox id="zbcontainer" selectedIndex="0" height="137">
+        <tabs  style="overflow: auto;width: 100%;">
+             <tab label="&zabbixbar.issues;" id="refresh_issues" style="font-size: xx-small;"/>
+             <tab label="&zabbixbar.status;" id="refresh_status" style="font-size: x-small;"/>
+             <tab label="&zabbixbar.webstatus;" id="refresh_webstatus" style="font-size: x-small;"/>
+             <tab label="&zabbixbar.systemstatus;" id="refresh_systemstatus" style="font-size: x-small;"/>
+             <button label="&zabbixbar.refresh_now;" style="font-size: x-small;" onclick="zabbixbar.refresh();"/>
+        </tabs>
+      <tabpanels flex="1" style="overflow: auto;">
+       <tabpanel id="issuespanel" orient="vertical" flex="1" style="margin: -10px; overflow: auto;">
+         <vbox id="zbContentBox" collapsed="false" persist="width"  height="137">
+            <hbox id="zbCommandBox" flex="1" style=" display: block; border: 1px solid black;" align="center">
+                <window
+    id="issues-window"
+    title="Last zabbix issues"
+    orient="horizontal"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" align="center" style="text-align: center; width: 100%;" flex="1">
+                <html:span><html:strong>Loading zabbix url...</html:strong></html:span>
+                <html:span id="hint_box" style="display: none;" onclick="this.style.display='none';document.getElementById('issues-window').childNodes[0].style.display=''"><html:strong>Loading zabbix url...</html:strong></html:span>
+                </window>
+            </hbox>
+          </vbox>
+       </tabpanel>
+       <tabpanel id="statuspanel" orient="vertical" flex="1"  style="margin: -10px; overflow: auto;">
+         <vbox id="zbContentBoxStatus" collapsed="false" persist="width"  height="137">
+            <hbox id="zbCommandBoxStatus" flex="1" style=" display: block; border: 1px solid black;" align="center">
+                <window
+    id="status-window"
+    title="Status of zabbix"
+    orient="horizontal"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" align="center" style="text-align: center; width: 100%;" flex="1">
+                <html:span><html:strong>Loading zabbix url...</html:strong></html:span>
+                </window>
+            </hbox>
+          </vbox>
+       </tabpanel>
+       <tabpanel id="webpanel" orient="vertical" flex="1" style="margin: -10px; overflow: auto;">
+         <vbox id="zbContentBoxWebStatus" collapsed="false" persist="width"  height="137">
+            <hbox id="zbCommandBoxWebStatus" flex="1" style=" display: block; border: 1px solid black;" align="center">
+                <window
+    id="webstatus-window"
+    title="Web status"
+    orient="horizontal"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" align="center" style="text-align: center; width: 100%;" flex="1">
+                <html:span><html:strong>Loading zabbix url...</html:strong></html:span>
+                </window>
+            </hbox>
+          </vbox>
+       </tabpanel>
+       <tabpanel id="systempanel" orient="vertical" flex="1" style="margin: -10px; overflow: auto;">
+         <vbox id="zbContentBoxSystemStatus" collapsed="false" persist="width"  height="137">
+            <hbox id="zbCommandBoxSystemStatus" flex="1" style=" display: block; border: 1px solid black;" align="center">
+                <window
+    id="systemstatus-window"
+    title="System status"
+    orient="horizontal"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" align="center" style="text-align: center; width: 100%;" flex="1">
+                <html:span><html:strong>Loading zabbix url...</html:strong></html:span>
+                <html:span id="systemhint_box" style="display: none; top: 0px; left: 0px; position: absolute;" onclick="this.style.display='none';document.getElementById('systemstatus-window').childNodes[0].style.display=''"><html:strong>Loading zabbix url...</html:strong></html:span>
+                </window>
+            </hbox>
+          </vbox>
+       </tabpanel>
+        </tabpanels>
+      </tabbox>
+
+      <notification id="zbNotification" label="This is a warning" style="display: none;"/>
+  </vbox>
+
+  <statusbar id="status-bar">
+    <statusbarpanel id="zbStatusBar" context="zbStatusContextMenu"
+                    onmousedown="zabbixbar.toggleBar(event);">
+        <image id="zbStatusIcon" tooltiptext="&zabbixbar.toggle;"/>
+        <label id="zbStatusText" style="color: red;"/> 
+    </statusbarpanel>
+    <menupopup id="zbStatusContextMenu" onpopupshowing="zabbixbar.onOptionsShowing(this)">
+            <menuitem id="show_ack"
+                label="&zabbixbar.showack;" type="checkbox" command="cmd_toggleAck" style="font-size: x-small" />
+            <menuitem id="autohide"
+                label="&zabbixbar.autohide;" type="checkbox" command="cmd_toggleHide" style="font-size: x-small" />
+            <menuitem id="show_popup"
+                label="&zabbixbar.show_popup;" type="checkbox" command="cmd_togglePopup" style="font-size: x-small" />
+            <menuseparator/>
+            <menuitem id="information"
+                label="&zabbixbar.showack_inf;" type="checkbox" onclick="zabbixbar.toggleSeverity(this)" style="font-size: x-small"/>
+            <menuitem id="warning"
+                label="&zabbixbar.showack_war;" type="checkbox" onclick="zabbixbar.toggleSeverity(this)" style="font-size: x-small"/>
+            <menuitem id="average"
+                label="&zabbixbar.showack_avg;" type="checkbox" onclick="zabbixbar.toggleSeverity(this)" style="font-size: x-small"/>
+            <menuitem id="high"
+                label="&zabbixbar.showack_hi;" type="checkbox" onclick="zabbixbar.toggleSeverity(this)" style="font-size: x-small"/>
+            <menuitem id="disaster"
+                label="&zabbixbar.showack_di;" type="checkbox" onclick="zabbixbar.toggleSeverity(this)" style="font-size: x-small"/>
+            <menuseparator/>
+            <menuitem id="audio_information"
+                label="&zabbixbar.audio_info;" type="checkbox" onclick="zabbixbar.toggleAudio(this)" style="font-size: x-small"/>
+
+            <menuitem id="audio_warning"
+                label="&zabbixbar.audio_warning;" type="checkbox" onclick="zabbixbar.toggleAudio(this)" style="font-size: x-small"/>
+            
+            <menuitem id="audio_average"
+                label="&zabbixbar.audio_average;" type="checkbox" onclick="zabbixbar.toggleAudio(this)" style="font-size: x-small"/>
+
+
+            <menuitem id="audio_high"
+                label="&zabbixbar.audio_high;" type="checkbox" onclick="zabbixbar.toggleAudio(this)" style="font-size: x-small"/>
+            <menuitem id="audio_disaster"
+                label="&zabbixbar.audio_disaster;" type="checkbox" onclick="zabbixbar.toggleAudio(this)" style="font-size: x-small"/>
+
+            <menuseparator/>
+            <menuitem id="Preferences" label="&zabbixbar.preferences;" onclick="zabbixbar.openOptions()" style="font-size: x-small"/>
+            <!--<menuitem label="&firebug.ClearConsole;" onclick="cmd_clearConsole"/>
+            <menuseparator/>
+            <menuitem id="menu_toggleSuspendFirebug" label="Suspend Firebug" command="cmd_toggleSuspendFirebug"/>-->
+    </menupopup>
+
+  </statusbar>
+
+</overlay>

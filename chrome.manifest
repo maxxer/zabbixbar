@@ -1,0 +1,8 @@
+content	zabbixbar	content/
+locale	zabbixbar	en-US	locale/en-US/
+locale	zabbixbar	es-ES	locale/es-ES/
+locale	zabbixbar	gn-ES	locale/gl-ES/
+skin	zabbixbar	classic/1.1	skin/
+overlay	chrome://browser/content/browser.xul	chrome://zabbixbar/content/firefoxOverlay.xul
+overlay	chrome://messenger/content/messenger.xul	chrome://zabbixbar/content/thunderbirdOverlay.xul
+style	chrome://global/content/customizeToolbar.xul	chrome://zabbixbar/skin/overlay.css

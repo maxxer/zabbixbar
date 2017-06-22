@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$nWPhr"
+                   em:id="{3550f703-e582-4d05-9a08-453d09bdfdc6}"
+                   em:minVersion="1.5"
+                   em:maxVersion="2.0.0.*" />
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="zabbix@alberto.gonzlez.rodrguez"
+                   em:name="bar showing zabbix issues"
+                   em:version="1.2.2"
+                   em:creator="Alberto González Rodríguez"
+                   em:description="extension to show in a bar current issues on zabbix"
+                   em:iconURL="chrome://zabbixbar/content/zabbixbar.png"
+                   em:optionsURL="chrome://zabbixbar/content/options.xul">
+    <em:targetApplication RDF:resource="rdf:#$mWPhr"/>
+    <em:targetApplication RDF:resource="rdf:#$nWPhr"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$mWPhr"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="3.0"
+                   em:maxVersion="3.0.*" />
+</RDF:RDF>
